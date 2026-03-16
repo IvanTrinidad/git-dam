@@ -49,23 +49,17 @@ public class EjerciciosEntornoRamas {
                 edades[i] = sc.nextInt();
             }
 
-            int rango1 = 0;  // 0-17
-            int rango2 = 0;  // 18-30
-            int rango3 = 0;  // 31-50
-            int rango4 = 0;  // +51
+            boolean todosMayores = true;
 
             for (int e : edades) {
-                if (e <= 17)       rango1++;
-                else if (e <= 30)  rango2++;
-                else if (e <= 50)  rango3++;
-                else               rango4++;
+                if (e < 18) {
+                    todosMayores = false;
+                    break;
+                }
             }
 
-            System.out.println("\nDistribución por rangos:");
-            System.out.println("  0-17  años: " + rango1 + " persona/s");
-            System.out.println("  18-30 años: " + rango2 + " persona/s");
-            System.out.println("  31-50 años: " + rango3 + " persona/s");
-            System.out.println("  +51   años: " + rango4 + " persona/s");
+            System.out.println("\n¿Todos los usuarios son mayores de edad? " + todosMayores);
+
 
         }
 
