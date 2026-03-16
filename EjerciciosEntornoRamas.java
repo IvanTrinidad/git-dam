@@ -14,27 +14,30 @@ public class EjerciciosEntornoRamas {
             numeros[i] = sc.nextInt();
         }
 
-        // Contar frecuencia de cada número
-        System.out.println("\nFrecuencia de cada número:");
-        boolean[] contado = new boolean[cantidad];
+        System.out.print("\n¿Qué número quieres eliminar? ");
+        int eliminar = sc.nextInt();
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (contado[i]) continue;
-            int freq = 1;
-            for (int j = i + 1; j < numeros.length; j++) {
-                if (numeros[j] == numeros[i]) {
-                    freq++;
-                    contado[j] = true;
-                }
+        // Crear un nuevo array sin la primera ocurrencia del número
+        boolean eliminado = false;
+        int[] resultado = new int[cantidad - 1];
+        int idx = 0;
+
+        for (int n : numeros) {
+            if (n == eliminar && !eliminado) {
+                eliminado = true;
+            } else {
+                if (idx < resultado.length) resultado[idx++] = n;
             }
-            System.out.println("  " + numeros[i] + " → aparece " + freq + " vez/veces");
         }
 
-
-
-
-
-
+        if (eliminado) {
+            System.out.println("Array resultante:");
+            for (int n : resultado) System.out.print(n + " ");
+        } else {
+            System.out.println("El número " + eliminar + " no existe en el array.");
+        }
+        System.out.println();
+        
     }
 
         public static void ej2(){
