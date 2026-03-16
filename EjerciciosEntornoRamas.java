@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EjerciciosEntornoRamas {
@@ -14,10 +15,15 @@ public class EjerciciosEntornoRamas {
             numeros[i] = sc.nextInt();
         }
 
-        System.out.println("\nNúmeros introducidos:");
+        // Arrays.sort ordena de menor a mayor por defecto
+        Arrays.sort(numeros);
+
+        System.out.println("\nNúmeros ordenados de menor a mayor:");
         for (int n : numeros) {
-            System.out.println(n);
+            System.out.print(n + " ");
         }
+        System.out.println();
+
 
 
 
