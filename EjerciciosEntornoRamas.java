@@ -70,27 +70,28 @@ public class EjerciciosEntornoRamas {
                 numeros[i] = (int) (Math.random() * 100) + 1;
             }
 
-            // Ordenar de mayor a menor
-            for (int i = 0; i < numeros.length - 1; i++) {
-                for (int j = 0; j < numeros.length - 1 - i; j++) {
-                    if (numeros[j] < numeros[j + 1]) {
-                        int temp = numeros[j];
-                        numeros[j] = numeros[j + 1];
-                        numeros[j + 1] = temp;
-                    }
-                }
-            }
-
-            System.out.print("Array ordenado: ");
+            System.out.print("Array original: ");
             for (int n : numeros) System.out.print(n + " ");
 
-            // Mostrar solo los números pares del array ordenado
-            System.out.println("\nNúmeros pares (ordenados de mayor a menor):");
+            // Contar pares e impares para dimensionar los arrays
+            int cPares = 0, cImpares = 0;
             for (int n : numeros) {
-                if (n % 2 == 0) {
-                    System.out.print(n + " ");
-                }
+                if (n % 2 == 0) cPares++; else cImpares++;
             }
+
+            int[] pares    = new int[cPares];
+            int[] impares  = new int[cImpares];
+            int ip = 0, ii = 0;
+
+            for (int n : numeros) {
+                if (n % 2 == 0) pares[ip++] = n;
+                else             impares[ii++] = n;
+            }
+
+            System.out.print("\nPares:   ");
+            for (int n : pares)   System.out.print(n + " ");
+            System.out.print("\nImpares: ");
+            for (int n : impares) System.out.print(n + " ");
             System.out.println();
         }
     public static void main(String[] args) {
