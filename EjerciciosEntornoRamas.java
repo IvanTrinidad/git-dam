@@ -64,35 +64,30 @@ public class EjerciciosEntornoRamas {
         }
 
         public static void ek3(){
+            Scanner sc = new Scanner(System.in);
             int[] numeros = new int[10];
 
             for (int i = 0; i < numeros.length; i++) {
                 numeros[i] = (int) (Math.random() * 100) + 1;
             }
 
-            System.out.print("Array original: ");
+            System.out.print("Array generado: ");
             for (int n : numeros) System.out.print(n + " ");
 
-            // Contar pares e impares para dimensionar los arrays
-            int cPares = 0, cImpares = 0;
-            for (int n : numeros) {
-                if (n % 2 == 0) cPares++; else cImpares++;
+            System.out.print("\n¿Qué número quieres buscar? ");
+            int buscar = sc.nextInt();
+
+            boolean encontrado = false;
+            for (int i = 0; i < numeros.length; i++) {
+                if (numeros[i] == buscar) {
+                    System.out.println("Número " + buscar + " encontrado en la posición " + i);
+                    encontrado = true;
+                }
             }
 
-            int[] pares    = new int[cPares];
-            int[] impares  = new int[cImpares];
-            int ip = 0, ii = 0;
-
-            for (int n : numeros) {
-                if (n % 2 == 0) pares[ip++] = n;
-                else             impares[ii++] = n;
+            if (!encontrado) {
+                System.out.println("El número " + buscar + " no existe en el array.");
             }
-
-            System.out.print("\nPares:   ");
-            for (int n : pares)   System.out.print(n + " ");
-            System.out.print("\nImpares: ");
-            for (int n : impares) System.out.print(n + " ");
-            System.out.println();
         }
     public static void main(String[] args) {
 
