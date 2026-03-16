@@ -3,36 +3,26 @@ import java.util.Scanner;
 public class EjerciciosEntornoRamas {
     public static  void ej1() {
         Scanner sc = new Scanner(System.in);
-        int[] numeros = new int[5];
+
+        System.out.print("¿Cuántos números quieres introducir? ");
+        int cantidad = sc.nextInt();
+
+        int[] numeros = new int[cantidad];
 
         for (int i = 0; i < numeros.length; i++) {
             System.out.print("Introduce el número " + (i + 1) + ": ");
             numeros[i] = sc.nextInt();
         }
 
-        int mayor = numeros[0];
-        int menor = numeros[0];
-        int positivos = 0;
-        int negativos = 0;
-
         System.out.println("\nNúmeros introducidos:");
         for (int n : numeros) {
             System.out.println(n);
-            if (n > mayor) mayor = n;
-            if (n < menor) menor = n;
-            if (n > 0) positivos++;
-            else if (n < 0) negativos++;
         }
 
-        System.out.println("\nMayor: " + mayor);
-        System.out.println("Menor: " + menor);
-        System.out.println("Positivos: " + positivos);
-        System.out.println("Negativos: " + negativos);
 
 
 
-
-        }
+    }
 
         public static void ej2(){
             Scanner sc = new Scanner(System.in);
