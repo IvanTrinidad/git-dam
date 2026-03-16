@@ -7,7 +7,6 @@ public class EjerciciosEntornoRamas {
 
         System.out.print("¿Cuántos números quieres introducir? ");
         int cantidad = sc.nextInt();
-
         int[] numeros = new int[cantidad];
 
         for (int i = 0; i < numeros.length; i++) {
@@ -15,14 +14,22 @@ public class EjerciciosEntornoRamas {
             numeros[i] = sc.nextInt();
         }
 
-        // Arrays.sort ordena de menor a mayor por defecto
-        Arrays.sort(numeros);
+        // Contar frecuencia de cada número
+        System.out.println("\nFrecuencia de cada número:");
+        boolean[] contado = new boolean[cantidad];
 
-        System.out.println("\nNúmeros ordenados de menor a mayor:");
-        for (int n : numeros) {
-            System.out.print(n + " ");
+        for (int i = 0; i < numeros.length; i++) {
+            if (contado[i]) continue;
+            int freq = 1;
+            for (int j = i + 1; j < numeros.length; j++) {
+                if (numeros[j] == numeros[i]) {
+                    freq++;
+                    contado[j] = true;
+                }
+            }
+            System.out.println("  " + numeros[i] + " → aparece " + freq + " vez/veces");
         }
-        System.out.println();
+
 
 
 
